@@ -70,3 +70,13 @@ if (!reduzir) {
     }
   });
 }
+/* Zoom da foto (animação nativa, independente do anime.js) */
+(function () {
+  const img = document.getElementById('foto');
+  const zoom = esc => img.animate(
+    { transform: `scale(${esc})` },
+    { duration: 350, easing: 'cubic-bezier(.34,1.56,.64,1)', fill: 'forwards' }
+  );
+  img.addEventListener('mouseenter', () => zoom(1.1));
+  img.addEventListener('mouseleave', () => zoom(1));
+})();
